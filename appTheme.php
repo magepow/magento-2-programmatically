@@ -11,12 +11,13 @@ class Outslide extends \Magento\Framework\App\Http
     public function launch()
     {
         $this->showTableTheme();
-        $this->setType(4);
-        $this->setType(5);
-        $this->setType(6);
-        $this->setType(7);
-        $this->setType(8);
-        $this->setType(9);
+
+        $collections = $this->_objectManager->create('Magento\Theme\Model\Theme');
+        $themes = $collections->getCollection()->addFieldToSelect('*');
+        foreach ($themes as $theme) {
+            $id = $theme->getData('theme_id');
+            $this->setType($id);
+        }
 
         // $themesCollections = $this->_objectManager->create('Magento\Theme\Model\Theme\Collection');
         // $themesCollections->addConstraint(Collection::CONSTRAINT_AREA, Area::AREA_FRONTEND);
