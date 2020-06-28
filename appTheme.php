@@ -19,6 +19,8 @@ class Outslide extends \Magento\Framework\App\Http
             $this->setType($id);
         }
 
+        // $this->setParent(5, 4);
+        // 
         // $themesCollections = $this->_objectManager->create('Magento\Theme\Model\Theme\Collection');
         // $themesCollections->addConstraint(Collection::CONSTRAINT_AREA, Area::AREA_FRONTEND);
         // $themes = [];
@@ -84,6 +86,18 @@ class Outslide extends \Magento\Framework\App\Http
             }
     }
 
+    public function setParent($id, $parentId)
+    {
+            $theme = $this->_objectManager->create('Magento\Theme\Model\Theme');
+            try {
+                $theme->load($id, 'theme_id');
+                $theme->setData('parent_id', $parentId);
+                $theme->save();
+                echo 'done';
+            } catch (\Exception $e) {
+                    $this->messageManager->addError(__('Can\'t create child theme error "%1"', $e->getMessage()));
+            }
+    }
 
 }
 
