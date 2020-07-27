@@ -29,5 +29,5 @@ class Outslide extends \Magento\Framework\App\Http
 }
 
 /** @var \Magento\Framework\App\Http $app */
-$app = $bootstrap->createApplication('changeConfig');
+$app = $bootstrap->createApplication('Outslide');
 $bootstrap->run($app);
