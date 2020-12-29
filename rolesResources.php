@@ -4,7 +4,7 @@
  * @Author: nguyen
  * @Date:   2020-12-29 11:18:57
  * @Last Modified by:   Alex Dong
- * @Last Modified time: 2020-12-29 11:25:08
+ * @Last Modified time: 2020-12-29 14:36:26
  */
 
 
@@ -56,7 +56,7 @@ class getAclResourcesAdmin extends \Magento\Framework\App\Http
         $this->_aclResourceProvider = $this->_objectManager->create('\Magento\Framework\Acl\AclResource\ProviderInterface');
         $this->_integrationData = $this->_objectManager->create('\Magento\Integration\Helper\Data');
         echo '<pre>';
-        $resources =  $this->getAclResources();
+        $resources =  $this->_aclResourceProvider->getAclResources();
         var_dump($this->getValueAclResources($resources));
         // var_dump($this->getTree());
         echo '</pre>';
