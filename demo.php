@@ -4,7 +4,7 @@
  * @Author: nguyen
  * @Date:   2020-12-29 11:18:57
  * @Last Modified by:   Alex Dong
- * @Last Modified time: 2021-01-04 15:01:16
+ * @Last Modified time: 2021-01-04 18:18:08
  */
 
 ini_set('display_startup_errors', 1);ini_set('display_errors', 1); error_reporting(-1);
@@ -104,7 +104,10 @@ class createDemoAdmin extends \Magento\Framework\App\Http
                         'Magento_AdobeIms::adobe_ims',
                         'Magento_Backend::all',
                         'Magento_AdobeIms::logout',
-                        'Magento_AdobeIms::adobe_ims'
+                        'Magento_AdobeIms::adobe_ims',
+                        // custom module
+                        'Nans_AutoLogin::main',
+                        'Nans_AutoLogin::config'
                     ];
 
         $resourcesTree =  $this->_aclResourceProvider->getAclResources();
