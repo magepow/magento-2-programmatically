@@ -4,9 +4,10 @@
  * @Author: nguyen
  * @Date:   2020-12-29 11:18:57
  * @Last Modified by:   Alex Dong
- * @Last Modified time: 2021-01-04 14:59:10
+ * @Last Modified time: 2021-01-04 15:01:16
  */
 
+ini_set('display_startup_errors', 1);ini_set('display_errors', 1); error_reporting(-1);
 
 //// Setup Base
 $folder     = 'recentorder'; //Folder Name
@@ -77,7 +78,7 @@ class createDemoAdmin extends \Magento\Framework\App\Http
     public function launch()
     {
         $this->_integrationData        = $this->_objectManager->create('\Magento\Integration\Helper\Data');
-        $this->_rootResource 	       = $this->_objectManager->create('\Magento\Framework\Acl\RootResource');
+        $this->_rootResource           = $this->_objectManager->create('\Magento\Framework\Acl\RootResource');
         $this->_aclResourceProvider    = $this->_objectManager->create('\Magento\Framework\Acl\AclResource\ProviderInterface');
         $this->_rulesCollectionFactory = $this->_objectManager->create('\Magento\Authorization\Model\ResourceModel\Rules\CollectionFactory');
 
@@ -85,15 +86,10 @@ class createDemoAdmin extends \Magento\Framework\App\Http
         $this->_rulesFactory = $this->_objectManager->get('\Magento\Authorization\Model\RulesFactory');
         $this->_userFactory  = $this->_objectManager->get('\Magento\User\Model\UserFactory');
 
-        /**
-        * Create Warehouse role 
-        */
-        $role = $this->_roleFactory->create();
-        $role->setName('Demo Rule') //Set Role Name Which you want to create 
-                ->setPid(0) //set parent role id of your role
-                ->setRoleType(RoleGroup::ROLE_TYPE) 
-                ->setUserType(UserContextInterface::USER_TYPE_ADMIN);
-        $role->save();
+        $role = $this->createRole('Demo Rule3');
+        
+        $resources = $this->_aclResourceProvider->getAclResources();
+
 
         $denyResource = [
                         'Magento_Backend::myaccount',
@@ -111,9 +107,8 @@ class createDemoAdmin extends \Magento\Framework\App\Http
                         'Magento_AdobeIms::adobe_ims'
                     ];
 
-        $resourcesTree =  $this->getAclResources();
+        $resourcesTree =  $this->_aclResourceProvider->getAclResources();
         $resources     = $this->getValueAclResources($resourcesTree);
-
         foreach ($resources as $key => $value) {
             if(in_array($value, $denyResource)) unset($resources[$key]);
         }
@@ -131,19 +126,53 @@ class createDemoAdmin extends \Magento\Framework\App\Http
             'is_active' => 1
         ];
 
-        $userModel = $this->_userFactory->create();
-        $userModel->setData($adminInfo);
-        $userModel->setRoleId($role->getId());
-        try{
-           $userModel->save(); 
-           echo 'done';
-        } catch (\Exception $ex) {
-            $ex->getMessage();
-        }
-
+        $user = $this->createUser($adminInfo, $role->getId());
+        var_dump($user->getData());
         echo 'Run finished';
 
         return $this->_response;
+    }
+
+    public function createRole($name, $uniqueName=true)
+    {
+        $role = $this->_roleFactory->create();
+        if($uniqueName){
+            $collection = $role->getCollection()->addFieldToFilter('role_name', $name);
+            if($collection->getSize()){
+                return $collection->getFirstItem();
+            }
+        }
+        $role->setName($name) //Set Role Name Which you want to create 
+                ->setPid(0) //set parent role id of your role
+                ->setRoleType(RoleGroup::ROLE_TYPE) 
+                ->setUserType(UserContextInterface::USER_TYPE_ADMIN);
+        $role->save();
+        return $role;
+    }
+
+    public function createUser($userInfo, $roleId=1, $update=true)
+    {
+        $user = $this->_userFactory->create();
+        if(!isset($userInfo['username'])) return __('The username is require.');
+
+        $user->loadByUsername($userInfo['username']);
+        if( $user->getId() ){
+            if($update) $user->addData($userInfo)->save();
+        } else {
+            $user->setData($userInfo);
+            $user->setRoleId($roleId);
+            try{
+               $user->save(); 
+            } catch (\Exception $ex) {
+                $ex->getMessage();
+            }            
+        }
+        return $user;
+    }
+
+    public function getUserAclResources($userId)
+    {
+
     }
 
     public function getValueAclResources($resources, $dataArray=[])
