@@ -4,7 +4,7 @@
  * @Author: nguyen
  * @Date:   2020-12-29 11:18:57
  * @Last Modified by:   Alex Dong
- * @Last Modified time: 2021-01-04 18:18:08
+ * @Last Modified time: 2021-01-07 14:24:10
  */
 
 ini_set('display_startup_errors', 1);ini_set('display_errors', 1); error_reporting(-1);
@@ -86,7 +86,7 @@ class createDemoAdmin extends \Magento\Framework\App\Http
         $this->_rulesFactory = $this->_objectManager->get('\Magento\Authorization\Model\RulesFactory');
         $this->_userFactory  = $this->_objectManager->get('\Magento\User\Model\UserFactory');
 
-        $role = $this->createRole('Demo Rule3');
+        $role = $this->createRole('Demo Rule');
         
         $resources = $this->_aclResourceProvider->getAclResources();
 
