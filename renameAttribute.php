@@ -13,7 +13,6 @@ class Outslide extends \Magento\Framework\App\Http
         $eavSetup = $this->_objectManager->get('Magento\Eav\Setup\EavSetupFactory');
 
         $catalogSetup = $eavSetup->create(['setup' => $setup]);        
-        // $catalogSetup->updateAttribute('catalog_category', 'demo_url', array('attribute_code' => 'demo_frontend'));
         $catalogSetup->updateAttribute('catalog_product', 'demo_url', array('attribute_code' => 'demo_frontend'));
 
         echo 'Done!';
