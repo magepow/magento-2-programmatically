@@ -1,8 +1,5 @@
 ## Magento 2 programmatically
 
-The Magento 2 programmatically is a code snippet run outside magento dose a certain task.
-
-### Description
 Sometime you want run a simple task but don't want create an extension or add code or custom in source magento you can use a Magento 2 programmatically run outside.
 
 ### Highlight Features
