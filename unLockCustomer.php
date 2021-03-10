@@ -1,14 +1,12 @@
 <?php
+
 /**
- * Magiccart 
- * @category    Magiccart 
- * @copyright   Copyright (c) 2014 Magiccart (http://www.magiccart.net/) 
- * @license     http://www.magiccart.net/license-agreement.html
- * @Author: DOng NGuyen<nguyen@dvn.com>
- * @@Create Date: 2018-03-20 21:14:06
- * @@Modify Date: 2018-05-31 10:17:23
- * @@Function:
+ * @Author: Alex Dong
+ * @Date:   2021-03-10 10:09:13
+ * @Last Modified by:   Alex Dong
+ * @Last Modified time: 2021-03-10 10:23:29
  */
+
 ini_set('display_startup_errors', 1);ini_set('display_errors', 1); error_reporting(-1);
 //// Setup Base
 $folder     = ''; //Folder Name
