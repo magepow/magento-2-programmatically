@@ -11,7 +11,7 @@ class Outslide extends \Magento\Framework\App\Http
         $categorySetupFactory = $this->_objectManager->create('\Magento\Catalog\Setup\CategorySetupFactory');
         $categorySetup = $categorySetupFactory->create(['setup' => $setup]);
 
-        $categorySetup->removeAttribute( \Magento\Catalog\Model\Product::ENTITY, 'extrafee');
+        $categorySetup->removeAttribute( \Magento\Catalog\Model\Category::ENTITY, 'extrafee');
 
         echo 'Done!';
         //the method must end with this line
