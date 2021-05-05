@@ -12,7 +12,6 @@ use Magento\Framework\Data\Tree\Node;
 use Magento\Framework\Data\Tree\Node\Collection;
 use Magento\Framework\Data\Tree\NodeFactory;
 use Magento\Framework\Data\TreeFactory;
-use Magento\Framework\DataObject;
 
 
 class CategoryTree extends \Magento\Framework\App\Http
