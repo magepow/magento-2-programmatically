@@ -117,6 +117,9 @@ class CategoryTree extends \Magento\Framework\App\Http
         foreach($categories as $category) {
             $level = $category->getLevel();
             $catChild  = $category->getChildren();
+            $childLevel = $this->getChildLevel($category->getLevel());
+            $this->removeChildrenWithoutActiveParent($catChild, $childLevel);
+
             $childHtml = ( $this->_recursionLevel == 0 || ($level -1 < $this->_recursionLevel) ) ? $this->getTreeCategories($catChild, $itemPositionClassPrefix) : '';
             $childClass  = $childHtml ? ' hasChild parent ' : ' ';
             $childClass .= $itemPositionClassPrefix . '-' .$counter;
@@ -208,6 +211,35 @@ class CategoryTree extends \Magento\Framework\App\Http
         return $catalogLayer->getCurrentCategory();
     }
 
+    /**
+     * Remove children from collection when the parent is not active
+     *
+     * @param Collection $children
+     * @param int $childLevel
+     * @return void
+     */
+    private function removeChildrenWithoutActiveParent(Collection $children, int $childLevel): void
+    {
+        /** @var Node $child */
+        foreach ($children as $child) {
+            if ($childLevel === 0 && $child->getData('is_parent_active') === false) {
+                $children->delete($child);
+            }
+        }
+    }
+
+    /**
+     * Retrieve child level based on parent level
+     *
+     * @param int $parentLevel
+     *
+     * @return int
+     */
+    private function getChildLevel($parentLevel): int
+    {
+        return $parentLevel === null ? 0 : $parentLevel + 1;
+    }
+    
 }
 
 
