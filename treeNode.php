@@ -50,8 +50,6 @@ class CategoryTree extends \Magento\Framework\App\Http
      */
     protected $storeManager;
 
-    protected $_recursionLevel = 0;
-
 
     public function launch()
     {
@@ -67,7 +65,17 @@ class CategoryTree extends \Magento\Framework\App\Http
         $rootId    = $this->storeManager->getStore()->getRootCategoryId();
         $storeId = $this->storeManager->getStore()->getId();
         echo "Root Id = $rootId and Store Id = $storeId";
-        /** @var \Magento\Catalog\Model\ResourceModel\Category\Collection $collection */
+        $menu = $this->getTreeMenu($storeId, $rootId);
+        $rootLevel = 0;
+        $this->removeChildrenWithoutActiveParent($menu, $rootLeve); 
+        $html = $this->getTreeCategories($menu, 'root-class');
+        echo $html;
+        //the method must end with this line
+        return $this->_response;
+    }
+
+    public function getTreeMenu($storeId, $rootId)
+    {
         $collection = $this->getCategoryTree($storeId, $rootId);
         $currentCategory = $this->getCurrentCategory();
         $mapping = [$rootId => $this->getMenu()];  // use nodes stack to avoid recursion
@@ -99,15 +107,11 @@ class CategoryTree extends \Magento\Framework\App\Http
 
             $mapping[$category->getId()] = $categoryNode; //add node in stack
         }
-        // echo '<pre>';
-        //     var_dump($mapping);
-        // echo '</pre>';
         $menu = isset($mapping[$rootId]) ? $mapping[$rootId]->getChildren() : [];
-        $html = $this->getTreeCategories($menu, 'root-class');
-        echo $html;
-        //the method must end with this line
-        return $this->_response;
+
+        return $menu;
     }
+
 
     public function  getTreeCategories($categories, $itemPositionClassPrefix) // include Magic_Label and Maximal Depth
     {
@@ -119,7 +123,7 @@ class CategoryTree extends \Magento\Framework\App\Http
             $childLevel = $this->getChildLevel($category->getLevel());
             $this->removeChildrenWithoutActiveParent($catChild, $childLevel);
 
-            $childHtml = ( $this->_recursionLevel == 0 || ($level -1 < $this->_recursionLevel) ) ? $this->getTreeCategories($catChild, $itemPositionClassPrefix) : '';
+            $childHtml = $this->getTreeCategories($catChild, $itemPositionClassPrefix);
             $childClass  = $childHtml ? ' hasChild parent ' : ' ';
             $childClass .= $itemPositionClassPrefix . '-' .$counter;
             $childClass .= ' category-item ';
@@ -190,7 +194,9 @@ class CategoryTree extends \Magento\Framework\App\Http
             'has_active' => in_array((string)$categoryId, explode('/', (string)$currentCategory->getPath()), true),
             'is_active' => $categoryId == $currentCategory->getId(),
             'is_category' => true,
-            'is_parent_active' => $isParentActive
+            'is_parent_active' => $isParentActive,
+            'entity_id' => $categoryId,
+            'level' => $category->getData('level')
         ];
     }
 
