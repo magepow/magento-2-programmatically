@@ -120,7 +120,7 @@ class CategoryTree extends \Magento\Framework\App\Http
         foreach($categories as $category) {
             $level = $category->getLevel();
             $catChild  = $category->getChildren();
-            $childLevel = $this->getChildLevel($category->getLevel());
+            $childLevel = $this->getChildLevel($level);
             $this->removeChildrenWithoutActiveParent($catChild, $childLevel);
 
             $childHtml = $this->getTreeCategories($catChild, $itemPositionClassPrefix);
