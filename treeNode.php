@@ -67,7 +67,7 @@ class CategoryTree extends \Magento\Framework\App\Http
         echo "Root Id = $rootId and Store Id = $storeId";
         $menu = $this->getTreeMenu($storeId, $rootId);
         $rootLevel = 0;
-        $this->removeChildrenWithoutActiveParent($menu, $rootLeve); 
+        $this->removeChildrenWithoutActiveParent($menu, $rootLevel); 
         $html = $this->getTreeCategories($menu, 'root-class');
         echo $html;
         //the method must end with this line
