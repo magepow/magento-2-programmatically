@@ -34,7 +34,7 @@ class Outside extends \Magento\Framework\App\Http
         }
         if ($categoryId) {
             $category->load($categoryId);
-            # Get _productCollection use layerCategory
+            # Get _productCollection random
             $_productCollection = $category->getProductCollection()
                                     ->addAttributeToSelect($catalogConfig->getProductAttributes())
                                     ->addMinimalPrice()
@@ -46,6 +46,7 @@ class Outside extends \Magento\Framework\App\Http
                                     ->setPageSize(10)
                                     ->setCurPage(1);
 
+            $_productCollection->getSelect()->order('rand()');
             echo __('This category have %1 products!', $_productCollection->count());
         } else {
             echo __('This category not exist!');
