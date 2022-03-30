@@ -3,10 +3,17 @@
 /**
  * @Author: nguyen
  * @Date:   2022-03-30 15:49:55
- * @Last Modified by:   nguyen
- * @Last Modified time: 2022-03-30 17:01:28
+ * @Last Modified by:   Alex Dong
+ * @Last Modified time: 2022-03-30 17:24:14
  */
 
+// https://magento.stackexchange.com/questions/341300/how-to-get-all-scheduled-changes-for-a-product-in-magento-commerce
+
+// https://magento.stackexchange.com/questions/315637/magento-2-enterprise-schedule-update-programatically
+// https://magento.stackexchange.com/questions/314163/magically-special-from-date-is-set-whenever-product-is-updated
+// https://magento.stackexchange.com/questions/148851/m2-enterprise-how-to-add-special-price-for-product-from-date-to-date-programmat
+// 
+// 
 ini_set('display_startup_errors', 1);ini_set('display_errors', 1); error_reporting(-1);
 //// Setup Base
 
