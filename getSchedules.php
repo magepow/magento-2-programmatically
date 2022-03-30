@@ -4,7 +4,7 @@
  * @Author: nguyen
  * @Date:   2022-03-30 15:49:55
  * @Last Modified by:   Alex Dong
- * @Last Modified time: 2022-03-30 17:24:14
+ * @Last Modified time: 2022-03-30 17:43:33
  */
 
 // https://magento.stackexchange.com/questions/341300/how-to-get-all-scheduled-changes-for-a-product-in-magento-commerce
@@ -66,7 +66,7 @@ class Schedule extends \Magento\Framework\App\Http
             $this->_request->setParams( ['id' => $productId]);
             $schedules = $this->searchResultFactory->create($params);
             foreach ($schedules as $schedule) {
-                echo 'Schedules "' . $schedule->getName() . '" start from ' . $schedule->getStartTime() . ' to ' . $schedule->getStartTime() . '<br/>';
+                echo 'Schedules "' . $schedule->getName() . '" start from ' . $schedule->getStartTime() . ' to ' . $schedule->getEndTime() . '<br/>';
             }
         }   catch (\Exception $e){
             echo $e->getMessage();
