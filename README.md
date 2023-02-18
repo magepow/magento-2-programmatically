@@ -20,45 +20,45 @@ If this project help you reduce time to develop, you can give me a cup of coffee
 
 **[Our Magento 2 Extensions](https://magepow.com/magento-2-extensions.html)**
 
-* [Magento 2 Recent Sales Notification](https://magepow.com/magento-2-recent-sales-notification.html)
+* [Magento 2 Recent Sales Notification](https://magepow.com/magento-2-recent-order-notification.html)
 
-* [Magento Categories Extension](https://magepow.com/magento-categories-extension.html)
+* [Magento 2 Categories Extension](https://magepow.com/magento-categories-extension.html)
 
-* [Magento Sticky Cart](https://magepow.com/magento-sticky-cart.html)
+* [Magento 2 Sticky Cart](https://magepow.com/magento-sticky-cart.html)
 
-* [Magento Ajax Contact](https://magepow.com/magento-ajax-contact-form.html)
+* [Magento 2 Ajax Contact](https://magepow.com/magento-ajax-contact-form.html)
 
-* [Magento Lazy Load](https://magepow.com/magento-lazy-load.html)
+* [Magento 2 Lazy Load](https://magepow.com/magento-lazy-load.html)
 
 * [Magento 2 Mutil Translate](https://magepow.com/magento-multi-translate.html)
 
 * [Magento 2 Instagram Integration](https://magepow.com/magento-2-instagram.html)
 
-* [Lookbook Pin Products](https://magepow.com/lookbook-pin-products.html)
+* [Magento 2 Lookbook Pin Products](https://magepow.com/lookbook-pin-products.html)
 
-* [Magento Product Slider](https://magepow.com/magento-product-slider.html)
+* [Magento 2 Product Slider](https://magepow.com/magento-product-slider.html)
 
-* [Magento Product Banner](https://magepow.com/magento-banner-slider.html)
+* [Magento 2 Product Banner](https://magepow.com/magento-2-banner-slider.html)
 
-**[Our Magento services](https://magepow.com/magento-services.html)**
+**[Our Magento 2 services](https://magepow.com/magento-services.html)**
 
-* [PSD to Magento 2 Theme Conversion](https://magepow.com/psd-to-magento-theme-conversion.html)
+* [PSD to Magento 2 Theme Conversion](https://alothemes.com/psd-to-magento-theme-conversion.html)
 
-* [Magento Speed Optimization Service](https://magepow.com/magento-speed-optimization-service.html)
+* [Magento 2 Speed Optimization Service](https://magepow.com/magento-speed-optimization-service.html)
 
-* [Magento Security Patch Installation](https://magepow.com/magento-security-patch-installation.html)
+* [Magento 2 Security Patch Installation](https://magepow.com/magento-security-patch-installation.html)
 
-* [Magento Website Maintenance Service](https://magepow.com/website-maintenance-service.html)
+* [Magento 2 Website Maintenance Service](https://magepow.com/website-maintenance-service.html)
 
-* [Magento Professional Installation Service](https://magepow.com/professional-installation-service.html)
+* [Magento 2 Professional Installation Service](https://magepow.com/professional-installation-service.html)
 
-* [Magento Upgrade Service](https://magepow.com/magento-upgrade-service.html)
+* [Magento 2 Upgrade Service](https://magepow.com/magento-upgrade-service.html)
 
-* [Customization Service](https://magepow.com/customization-service.html)
+* [Magento 2 Customization Service](https://magepow.com/customization-service.html)
 
-* [Hire Magento Developer](https://magepow.com/hire-magento-developer.html)
+* [Hire Magento 2 Developer](https://magepow.com/hire-magento-developer.html)
 
-**[Our Magento Themes](https://alothemes.com/)**
+**[Our Magento 2 Themes](https://alothemes.com/)**
 
 * [Expert Multipurpose Responsive Magento 2 Theme](https://1.envato.market/c/1314680/275988/4415?u=https://themeforest.net/item/expert-premium-responsive-magento-2-and-1-support-rtl-magento-2-/21667789)
 
@@ -91,6 +91,10 @@ If this project help you reduce time to develop, you can give me a cup of coffee
 * [Flexon - Multipurpose Shopify Theme](https://1.envato.market/c/1314680/275988/4415?u=https://themeforest.net/item/flexon-multipurpose-shopify-theme/33461048)
 
 **[Our Shopify App](https://apps.shopify.com/partners/maggicart)**
+
+* [Magepow Infinite Scroll](https://apps.shopify.com/magepow-infinite-scroll)
+
+* [Magepow Promotionbar](https://apps.shopify.com/magepow-promotionbar)
 
 * [Magepow Size Chart](https://apps.shopify.com/magepow-size-chart)
 
