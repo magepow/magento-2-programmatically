@@ -13,12 +13,6 @@ class Outslide extends \Magento\Framework\App\Http
          $_MyClass->deleteCategories($ids);
         return $this->_response;
     }
-
-    public function catchException(\Magento\Framework\App\Bootstrap $bootstrap, \Exception $exception)
-    {
-        return false;
-    }
-
 }
 
 
