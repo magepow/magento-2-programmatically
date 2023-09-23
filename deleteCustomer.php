@@ -47,6 +47,7 @@ class DeleteCustomer{
         $collection = $this->_objectManager->create('\Magento\Customer\Model\Customer');
         $customers = $collection->getCollection()
                                 ->addAttributeToFilter("email", ["like" => "%@qq.com"])
+                                ->addAttributeToSort('entity_id', 'DESC')
                                 // ->addAttributeToFilter("email", ["like" => "%@sina.com"])
                                 // ->addAttributeToFilter("email", ["like" => "%@yahoo.com.cn"])
                                 // ->addAttributeToFilter("email", ["like" => "%@163.com"])
