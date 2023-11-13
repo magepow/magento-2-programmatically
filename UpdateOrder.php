@@ -4,11 +4,11 @@
 
 use Magento\Framework\Exception\NoSuchEntityException;
 
-$file = '../app/bootstrap.php';
+$file = 'app/bootstrap.php';
 require $file;
 $bootstrap = \Magento\Framework\App\Bootstrap::create(BP, $_SERVER);
 
-class UpdateOrder extends \Magento\Framework\App\Http implements \Magento\Framework\AppInterface
+class ZUpdateOrder extends \Magento\Framework\App\Http implements \Magento\Framework\AppInterface
 {
 
     protected $orderRepository;
@@ -90,5 +90,5 @@ class UpdateOrder extends \Magento\Framework\App\Http implements \Magento\Framew
 }
 
 /** @var \Magento\Framework\App\Http $app */
-$app = $bootstrap->createApplication('UpdateOrder');
+$app = $bootstrap->createApplication('ZUpdateOrder');
 $bootstrap->run($app);
