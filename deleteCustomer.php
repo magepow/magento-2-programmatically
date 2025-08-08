@@ -50,6 +50,7 @@ class DeleteCustomer{
                                 ->addAttributeToSort('entity_id', 'DESC')
                                 // ->addAttributeToFilter("email", ["like" => "%@sina.com"])
                                 // ->addAttributeToFilter("email", ["like" => "%@sohu.com"])
+                                // ->addAttributeToFilter("email", ["like" => "%@naver.com"])
                                 // ->addAttributeToFilter("email", ["like" => "%@yahoo.com.cn"])
                                 // ->addAttributeToFilter("email", ["like" => "%@163.com"])
                                 // ->addAttributeToFilter("email", ["like" => "%@139.com"])
