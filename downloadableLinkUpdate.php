@@ -57,12 +57,12 @@ class DownloadableUpdate extends \Magento\Framework\App\Http
                 foreach ($linkCollection as $link) {
                     // Here, we're just updating the link's URL
 
-                    echo $link->getLinkUrl() . '<br/>';
+                    echo $link->getLinkUrl() . PHP_EOL;
                     // $link->setLinkUrl('https://domain.com/new-downloadable-link-url.zip'); // Replace with new link
                     // $link->setLinkTitle('New Downloadable Link Title');  // You can update the title too
                     // $link->save();
 
-                    echo $link->getLinkFile() . '<br/>';
+                    echo $link->getLinkFile() . PHP_EOL;
                     // $link->setLinkFile('new-downloadable-link-url.zip'); // Replace with new link
                     // $link->setLinkTitle('New Downloadable Link Title');  // You can update the title too
                     // $link->save();
