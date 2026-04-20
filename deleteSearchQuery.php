@@ -58,9 +58,12 @@ class DeleteSearchQuery{
 
         $querysDeleted = 0;
         foreach ($searchQuery as $query) {
-            echo $query->getQueryText();
-            $query->delete();
-            $querysDeleted++;
+            $queryText = $query->getQueryText();
+            if( preg_match('/\b((https?:\/\/)?(www\.)?[a-z0-9\-]+(\.[a-z0-9\-]+)+)\b|\b(bitcoin|coin|crypto|usdt|eth)\b/i', $queryText) ){
+                echo $queryText;
+                $query->delete();
+                $querysDeleted++;
+            }
         }
 
         if ($querysDeleted) {
