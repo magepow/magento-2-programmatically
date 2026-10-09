@@ -10,6 +10,7 @@ class Outslide extends \Magento\Framework\App\Http
     implements \Magento\Framework\AppInterface {
     public function launch()
     {
+        $this->_state->setAreaCode('adminhtml'); ;
         $myClass = $this->_objectManager->create('DeleteCustomer');
         $myClass->deleteCustomers();
         return $this->_response;
@@ -46,19 +47,26 @@ class DeleteCustomer{
         $limit = 10000;
         $collection = $this->_objectManager->create('\Magento\Customer\Model\Customer');
         $customers = $collection->getCollection()
-                                ->addAttributeToFilter("email", ["like" => "%@qq.com"])
                                 ->addAttributeToSort('entity_id', 'DESC')
-                                // ->addAttributeToFilter("email", ["like" => "%@sina.com"])
-                                // ->addAttributeToFilter("email", ["like" => "%@sohu.com"])
-                                // ->addAttributeToFilter("email", ["like" => "%@naver.com"])
-                                // ->addAttributeToFilter("email", ["like" => "%@yahoo.com.cn"])
-                                // ->addAttributeToFilter("email", ["like" => "%@163.com"])
-                                // ->addAttributeToFilter("email", ["like" => "%@139.com"])
-                                // ->addAttributeToFilter("email", ["like" => "%@126.com"])
-                                // ->addAttributeToFilter("firstname", ["like" => "%www.%"])
-                                // ->addAttributeToFilter("firstname", ["like" => "%http.%"])
-                                // ->addAttributeToFilter("lastname", ["like" => "%dkhdeiqknp%"])
-                                ->setPageSize($limit)->setCurPage(1);
+                                ->addAttributeToFilter([
+                                    ['attribute' => 'email', 'like' => '%@qq.com'],
+                                    ['attribute' => 'email', 'like' => '%@sina.com'],
+                                    ['attribute' => 'email', 'like' => '%@sohu.com'],
+                                    ['attribute' => 'email', 'like' => '%@naver.com'],
+                                    // ['attribute' => 'email', 'like' => '%@.cn'],
+                                    ['attribute' => 'email', 'like' => '%@163.com'],
+                                    ['attribute' => 'email', 'like' => '%@139.com'],
+                                    ['attribute' => 'email', 'like' => '%@126.com'],
+                                    ['attribute' => 'email', 'like' => '%.ru'],
+                                    ['attribute' => 'email', 'like' => '%sample%'],
+                                    ['attribute' => 'email', 'like' => '%example%'],
+                                    ['attribute' => 'firstname', 'like' => '%www.%'],
+                                    ['attribute' => 'firstname', 'like' => '%http%'],
+                                    ['attribute' => 'firstname', 'like' => '%sex%'],
+                                    ['attribute' => 'lastname', 'like' => '%www.%'],
+                                    ['attribute' => 'lastname', 'like' => '%http%'],
+                                    ['attribute' => 'lastname', 'like' => '%sex%']
+                                ])->setPageSize($limit)->setCurPage(1);
 
         $customersDeleted = 0;
         foreach ($customers as $customer) {
