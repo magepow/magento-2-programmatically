@@ -35,7 +35,7 @@ class DownloadableUpdate extends \Magento\Framework\App\Http
     public function launch()
     {
 
-        $this->_state->setAreaCode('adminhtml'); ;
+        $this->_state->setAreaCode('adminhtml');
         $downloadable = $this->getDownloadableProducts();
         $num = 0;
         foreach ($downloadable as $item) {
